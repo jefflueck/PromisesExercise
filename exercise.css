@@ -1,0 +1,23 @@
+#cards > img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#cards {
+  margin-top: 80px;
+}
+
+button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#btn-container {
+  text-align: center;
+}
+
+body {
+  background-color: rgb(60, 172, 73);
+}
