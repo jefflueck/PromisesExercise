@@ -33,10 +33,21 @@ $.getJSON(`${CARDS_BASE_URL}new/shuffle/`).then((data) => {
 });
 $btn.on('click', function () {
   $.getJSON(`${CARDS_BASE_URL}${newDeck}/draw/`).then((data) => {
+    // solution code
     let cardSrc = data.cards[0].image;
-    $cards.append(`<img src="${cardSrc}">`);
+    let angle = Math.random() * 90 - 45;
+    let randomX = Math.random() * 40 - 20;
+    let randomY = Math.random() * 40 - 20;
+    $cards.append(
+      $('<img>', {
+        src: cardSrc,
+        css: {
+          transform: `translate(${randomX}px, ${randomY}px) rotate(${angle}deg)`,
+        },
+      })
+    );
+    if (data.remaining === 0) {
+      $btn.hide();
+    }
   });
-  if (data.remaining === 0) {
-    $btn.hide();
-  }
 });
